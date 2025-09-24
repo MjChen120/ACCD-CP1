@@ -30,11 +30,31 @@
             padding-bottom: 8px;
         }
 
+        .active {
+            font-weight: bold;
+        }
+
+        nav ul li:last-child {
+            border-bottom: none
+        }
+
         nav ul a {
             text-decoration: none;
             color: black;
             text-transform: uppercase;
-            font-weight: bold;
+        }
+
+        @media (min-width: 768px) {
+            nav ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+            }
+            
+            nav ul li {
+                border-bottom: none;
+                margin: 10px;
+            }
         }
 
     </style>
@@ -44,7 +64,7 @@
         <nav>
             <ul>
                 <li><a href="#someLinkHere">Home</a></li>
-                <li><a href="#someLinkHere">Work</a></li>
+                <li class="active"><a href="#someLinkHere">Work</a></li>
                 <li><a href="#someLinkHere">Blog</a></li>
             </ul>
         </nav>
