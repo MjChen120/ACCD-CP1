@@ -4,77 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Examples</title>
-    <style> 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header,
-        footer {
-            background-color: rgb(168, 245, 255);
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 300;
-            color: rgb(4, 21, 118);
-        }
-
-        nav ul {
-            margin-top: 0;
-            margin-bottom: 0;
-            padding: 20px;
-            list-style: none;
-            text-align: center;
-        }
-
-        nav ul li {
-            margin: 10px auto;
-            border-bottom: 2px solid transparent;
-            padding-bottom: 8px;
-        }
-
-        .active {
-            font-weight: bold;
-        }
-
-        .cursive {
-            font-style:italic;
-        }
-
-        #addContent {
-            color:darkblue
-        }
-
-        nav ul li:last-child {
-            border-bottom: none
-        }
-
-        nav ul a {
-            text-decoration: none;
-            color: black;
-            text-transform: uppercase;
-        }
-
-        @media (min-width: 768px) {
-            nav ul {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-evenly;
-            }
-            
-            nav ul li {
-                border-bottom: none;
-                margin: 10px;
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <header>
@@ -88,7 +18,7 @@
     </header>
 
     <main>
-        <h1>Responsive example</h1>
+        <h1>Responsive Example</h1>
         <p>This is a simple example of a responsive navigation 
             bar using HTML and CSS. Resize the browser window to 
             see how the navigation bar adapts to different screen sizes.</p>
@@ -100,10 +30,28 @@
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
             culpa qui officia deserunt mollit anim id est laborum.</p>
 
+        <h1>Wrapper Practice</h1>
+        <p>A example learned from 
+            https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+        </p>
+            <div class="wrapper">
+                <header class="subheader">Header</header>
+                <article class="content">
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada 
+                        fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, 
+                        ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam 
+                        egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>  
+                </article>
+                <aside class="aside aside-1">Aside 1</aside>
+                <aside class="aside aside-2">Aside 2</aside>
+                <footer class="subfooter">Footer</footer>
+            </div>
     </main>
 
-    <footer>
 
+
+    <footer>
+        <p>By Betty Chen, An Assignment work for ACCD CP1</p>
     </footer>
     
 </body>
