@@ -12,12 +12,49 @@ img {
     height: 400px;
 }
 
-#tImage {
+.tImage {
   width: 100px;
   height: 100px;
   object-fit: cover;
   border-radius: 8px; 
   cursor: pointer; 
+}
+
+.tImage.active {
+  border: 3px solid #47bfff; 
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.controls {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.controls button {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: 3px solid #47bfff;
+  color:#47bfff;
+}
+
+#completeBtn:disabled {
+  background-color: transparent;
+  border: 3px solid #838383;
+  color: #838383;
+  cursor: not-allowed;
+}
+
+#completeBtn {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  font-size: 1rem;
+  border: 3px solid #47bfff;
+  color:#ffffff;
+  background-color: #83ccf4;
+  cursor: pointer;
 }
 
 main {
@@ -28,7 +65,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #37d28d;
+  background-color: #81d1ff;
   padding: 1rem 2rem;
   color: white;
 }
