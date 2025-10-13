@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallary Tutorial Puzzle</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Logo</div>
+        <ul class="nav-links">
+            <li class="cursive"><a href="#someLinkHere">Betty C</a></li>
+        </ul>
+    </nav>
+
+    <h1>🌊Hot Spring🐤</h1>
+    <h3>A slideshow of my duck osen made with Blender</h3>
+
+    <section class="thumbnails">
+        <img src="images/OC1.png" alt="Trigger Image" class="tImage">
+        <img src="images/OC2.png" alt="Trigger Image" class="tImage">
+        <img src="images/OC3.png" alt="Trigger Image" class="tImage">
+        <img src="images/OC4.png" alt="Trigger Image" class="tImage">
+    </section>
+
+    <section class="mainPhoto">
+        <img src="images/OC1.png" alt="My Original Character" id="OCImage">
+    </section>
+
+    <script src="script/script.js"></script>
+
+    <div class="controls">
+        <button id="pauseBtn">Pause</button>
+        <button id="playBtn">Play</button>
+    </div>
+
+    <h2>Documentation of Process</h2>
+
+    <h3>Concept and Ideation</h3>
+    <p> I wanted to create a scene that is wholesome and cute, 
+        meanwhile not complicated enough so that I can create 
+        with low poly techniques. Here I started with a very rough
+        skecth on my tablet, which I think that the 3D version of it 
+        will be very cute and nice to have. </p>
+
+    <img src="images/sketch.png" alt="Ideation Sketch" id="sketch" class="documentationImage">
+
+    <h3>Creation of Rocks</h3>
+    <p> First, I would like to start with all the rocks.
+        I first imagined that I can try to combine a Ico Sphere
+        and a Cube to create a rock so that the base of the rock 
+        can be flat and the top can be more rounded with edgeds that
+        I can modify to make them more nature. However, I got stucked,
+        so that I decided to google how to create rocks in Blender.  
+        <br>
+        I found a <a href="https://www.youtube.com/watch?v=4EqLyGsu3AA" target="_blank">tutorial</a> instead
+        to build rocks, and I learn that I can use modifier and texture in combination
+        to create a rock that looks more natural. I followed the steps in the video,
+        and I created a rock that I am satisfied with. </p> 
+    <img src="images/rockTut.png" alt="Rock Example with the help of Tutorial" id="rockTut" class="documentationImage">
+    <br>
+    <p> After I created the rock, I duplicated it to make it into
+        a irregular circle on Z-axis that looks like what a hot 
+        spring will have and modified them a little bit to make them look 
+        natural. </p>
+
+    <section class ="rockExamples">
+        <img src="images/rocks1.png" alt="Rock Example" class="documentationImage">
+        <img src="images/rock2.png" alt="Rock Example" class="documentationImage">
+    </section>
+
+    <h3>Creation of Water</h3>
+    <p> For the water, I created a cube with some depth to make the water more
+        realistic. Then I used the same texture that I used for 
+        the rock to create some waves on the surface of the water (<a href="https://www.youtube.com/watch?v=dzuJ39b-gu4" target="_blank">reference</a>). 
+        I also adjusted the transparency and color of the water to make it 
+        look more realistic.
+    </p>
+
+    <img src="images/water0.png" alt="Water Example" id="water" class="documentationImage">
+
+    <p>
+        By working on the water surface, I learned how to <b>divide the surface into multiple smaller parts</b>
+        in order to 1) modify and apply texture to it and 2) change the shape of a cube to fit into the shape 
+        of the rock circle. 
+        Now that I have a relatively working water, I am also including the grass/ground 
+        to see whwther all of my stuff work togethor so far. 
+    </p>
+
+</body>
+</html>
