@@ -12,7 +12,7 @@ body {
 }
 
 h1, h3 {
-  color: rgba(63, 5, 87, 0.594);
+  color: rgba(5, 87, 77, 0.594);
   text-align: center;
 }
 
@@ -55,22 +55,6 @@ img {
   border: 3px solid #47bfff; 
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
-
-.controls {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.controls button {
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  background-color: transparent;
-  border: 3px solid #47bfff;
-  color:#47bfff;
-}
-
 
 main {
     align-items: center;
@@ -137,7 +121,7 @@ main {
 .mainPhoto {
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  padding-top: 2rem;
   
 }
 
