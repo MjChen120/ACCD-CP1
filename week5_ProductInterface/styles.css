@@ -64,7 +64,7 @@ img {
 }
 
 .sketch {
-  width: 400px;
+  width: 150px;
   object-fit: cover;
 }
 
@@ -146,4 +146,10 @@ main {
   margin-bottom: 100px;
 }
 
+video {
+  display: block; 
+  max-width: 35%;
+  height: auto;
+  margin: 0 auto; 
+}
 
