@@ -59,13 +59,14 @@ img {
 .sketches {
   display: flex;
   justify-content: center;
+  gap: 8px; /* Adjust this value to control spacing */
 }
 
-#sketch{
+.sketch {
   width: 400px;
   object-fit: cover;
-  border-radius: 8px; 
 }
+
 main {
     align-items: center;
 }
