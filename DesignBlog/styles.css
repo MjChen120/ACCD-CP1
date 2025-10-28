@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+
+h1, h3 {
+  color: rgba(5, 87, 77, 0.594);
+  text-align: center;
+  margin-bottom: auto;
+}
+
+h2 {
+  color: rgba(5, 57, 113, 0.594);
+  text-align: center;
+  margin-top: 100px;
+}
+
+p {
+  color: rgba(5, 57, 113, 0.594);
+  line-height: 1.6;
+  padding: 20px 20px;
+  max-width: 750px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+a {
+  color: #6a0b6d;
+}
+
+#colorStage {
+    height: 400px;
+}
+
+main {
+    align-items: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #81d1ff;
+  padding: 1rem 2rem;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
