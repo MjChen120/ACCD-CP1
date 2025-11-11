@@ -36,14 +36,33 @@
     <ul class="listOfP">
       <li class="problem">Set Window width and height</li>
         <ul>
-          <li>Learned </li>
+          <li>Referrd back to existing examples</li>
         </ul>
       <li class="problem">Line keeps drawing and expanding without completing any polygons</li>
+        <ul>
+          <li>Instead of drawing Pentagons in draw(), I set them up in the Setup() instead and push them into the pentagon list </li>
+        </ul>
       <li class="problem">Stroke color very light and does not change for some reason</li>
+        <ul>
+          <li>Setting them up in the Setup() instead also solved this problem</li>
+        </ul>
       <li class="problem">Pentagons are not rotating</li>
+        <ul>
+          <li>I played with the variable angle by setuping a variable called layerAngleOffset to update the angle a little bit each loop </li>
+        </ul>
       <li class="problem">Applying the Animation</li>
-      <li class="problem"><b><u>Pentagon Circle Rotation</u></b></li>
+        <ul>
+          <li>Because I draw the Pentagons in the Setup() section, I applied animation in changing colors in HSB mode instead. Where I update the hue number automatically in each draw and use loops to spread the hue across the patterns.</li>
+        </ul>
       <li class="problem">Positioning the Sketch in the middle of the html</li>
+        <ul>
+          <li>Setting the canvas to window width and height solved the problem.</li>
+        </ul>
+      <li class="problem">Adding Circles</li>
+        <ul>
+          <li>Adding circles to make the pattern more complicated.</li>
+        </ul>
+        
     </ul>
 
     <h2>Sketch Shocase</h2>
