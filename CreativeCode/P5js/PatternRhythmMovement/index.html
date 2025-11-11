@@ -58,11 +58,43 @@
         <ul>
           <li>Setting the canvas to window width and height solved the problem.</li>
         </ul>
-      <li class="problem">Adding Circles</li>
+      <li class="problem">Adding Circles and Lines</li>
         <ul>
-          <li>Adding circles to make the pattern more complicated.</li>
+          <li>Adding circles to make the pattern more complicated in terms of pattern and rhythms.</li>
         </ul>
-        
+      <li class="problem"><u><b>Adding Sound to the Animation</b></u></li>
+        <ul>
+          <li>After being relatively satisfied with my sketch, I began to add sound to accompany with the movements; I refered to the 
+            <a href="https://editor.p5js.org/p5/sketches/Sound:_Load_and_Play_Sound">P5js example online</a> for reference and learned 
+            that you could load a file for sound playing. For adding a sound that suits my sketch, I first approached to search sound on YouTube 
+            and was trying to convert them into MP3 file. Almost all the YouTube videos I found are very long and made the progress challenging. 
+            Recalling from previous coding classes, I remembered that there were free resources online for coding. I explored to a 
+            <a href = "https://pixabay.com/sound-effects/search/code/"></a>new website where it lists a lot of free sound assets for use. Now that finding
+            a sound fits my sketch, I started to implement it. I do encountered more problems when putting it in. 
+          </li>
+          <li>
+            After setting up the variable and load the sound MP3 file, I imagine that my sound will repeat each time the color animation plays. I put 
+            <code>sound.play()</code> in the draw() function. As soon as I put it in there, all the pattern I have sketched disappeared and no sound was 
+            playing when I ran the code. Being confused, I tried to move the code into Setup() function, and found the same result as well. This is confusing
+            for me because I assumed that, it is reasonable for Draw() to stop working because it is running repeatively and could be stucked by keep calling the 
+            play function; however, if you put the line of code into Setup() function, it should play automatically when you run the function right? 
+          </li>
+          <li>
+            With trails and errors, I looked into the <a href="https://editor.p5js.org/p5/sketches/Sound:_Load_and_Play_Sound">P5js music playing example</a> again,
+            and used the mousePressed() function to make the sound playing based on whether the mouse is clicked at the sketch. I looked further into 
+            <a href="https://p5js.org/reference/p5/loadSound/">documentations and manuals for sound</a> and learned that sound playing is usually structured this way for
+            functioning. Therefore, although different than I've imagined, a sound will play only when the mouse is clicked at my sketch. That being solved, now copying and pasting
+            my work from P5js editing page to sketch.js, my sound code does not work and makes my sketch disappear on html page again. After spending quite sometime troubleshooting, I am 
+            officially stucked and will ask Professor Maxim Safioulline for help during the class.
+          </li>
+        </ul>
+      <li class="problem">Centering my ul list and scaling the width of the container</li>
+        <ul>
+          <li> <code> list-style-position: inside; </code></li>
+          <li> <code> width: 80%;  </code></li>
+          <li> <code>margin: 0 auto; </code></li>
+        </ul>
+
     </ul>
 
     <h2>Sketch Shocase</h2>

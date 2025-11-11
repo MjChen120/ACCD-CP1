@@ -48,7 +48,16 @@ p {
 }
 
 ul {
-    list-style-type: disc;
+  list-style-type: disc;
+  list-style-position: inside;
+  width: 80%;  
+  margin: 0 auto; 
+  text-align: center;  
+    
+}
+
+li {
+    padding: 8px;
 }
 
 .listOfP {
