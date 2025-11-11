@@ -48,9 +48,15 @@ p {
 }
 
 .listOfP {
+  display: grid;
   color: rgba(5, 57, 113, 0.594);
-  text-align: center;
+  place-items: center;
+  text-align: left;
   list-style: circle;
+}
+
+.problem {
+    font-weight: bold;
 }
 
 img {
