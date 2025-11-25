@@ -1,85 +1,68 @@
 let numArcs = 10;
 let diam = 160;
 let strW = 20;
+
 let bckClr;
-
-const SUN_URLS = [
-  "https://png.pngtree.com/png-vector/20240914/ourmid/pngtree-scientifically-accurate-realistic-illustration-of-the-sun-isolated-on-black-background-png-image_13831928.png",
-  "https://png.pngtree.com/png-vector/20250120/ourmid/pngtree-glowing-hot-sun-with-fiery-surface-in-high-resolution-png-image_15284014.png",
-  "https://png.pngtree.com/png-vector/20240515/ourmid/pngtree-sun-planet-in-space-vibrant-and-glowing-3d-icon-with-radiating-png-image_12470925.png",
-];
-
-const PLANET_URLS = [
-  "https://upload.wikimedia.org/wikipedia/commons/2/24/Transparent_Mercury.png",
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Venus_globe_-_transparent_background.png/2048px-Venus_globe_-_transparent_background.png", "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Earth_Western_Hemisphere_transparent_background.png/1200px-Earth_Western_Hemisphere_transparent_background.png", 
-  "https://upload.wikimedia.org/wikipedia/commons/6/68/Mars_%2816716283421%29_-_Transparent_background.png",
-  "https://upload.wikimedia.org/wikipedia/commons/e/e1/Jupiter_%28transparent%29.png",
-  "https://upload.wikimedia.org/wikipedia/commons/4/43/Saturnx.png",
-  "https://upload.wikimedia.org/wikipedia/commons/3/34/Transparent_Uranus.png",
-  "https://upload.wikimedia.org/wikipedia/commons/7/7d/Transparent_Neptune.png", 
-  "https://upload.wikimedia.org/wikipedia/commons/9/94/Pluto-transparent.png",
-];
-
-let sunImages = [];
-let planetImages = []; // ⭐️ NEW: Array to hold all 10 loaded planet images
+let planetEmojis = ['🪐', '🌍', '☄️', '🌑', '🌕', '🌀', '💫', '⭐', '✨', '🔥']; 
 
 // --- Variables for Continuous Motion (Planet Properties) ---
-let planets = [];
+let planets = []; // Array to store permanent properties like size/mass
 
 // --- Variables for Interval-based Motion (Sun Change) ---
+let sunStates = [
+  { text: "☀️", size: 100, color: 'yellow' },
+  { text: "🔥", size: 100, color: 'orange' },
+  { text: "🌟", size: 100, color: 'red' },
+  { text: "🔅", size: 100, color: 'white' }
+];
 let currentSunStateIndex = 0;
 let sunInterval = 3500;
 let previousTime = 0;
-
-function preload() {
-  // Load Sun Images
-  for (let url of SUN_URLS) {
-    sunImages.push(loadImage(url));
-  }
-
-  for (let url of PLANET_URLS) {
-    planetImages.push(loadImage(url));
-  }
-}
 
 function setup() {
   createCanvas(800, 800);
   colorMode(HSB, TWO_PI, 1, 1);
   bckClr = color(0, 0, 0);
-  imageMode(CENTER);
+  
+  textAlign(CENTER, CENTER);
 
+  // Initialize Planet Properties (Runs once)
   initializePlanets();
 }
 
 function initializePlanets() {
-  for (let i = 0; i < numArcs; i++) {
-    // Random Size (Mass) - Size is slightly larger/smaller than the image size
-    let size = random(strW * 1.5, strW * 4);
+    // Determine the permanent radius and mass-related properties for each planet
+    for (let i = 0; i < numArcs; i++) {
+        // 1. Random Size (Mass)
+        // Size will be between strW * 0.8 and strW * 3
+        let size = random(strW * 0.8, strW * 3); 
+        
+        // 2. Fixed Orbital Radius
+        let orbitalSpacing = 35;
+        let revolutionRadius = diam + (i + 1) * orbitalSpacing;
 
-    // Fixed Orbital Radius
-    let orbitalSpacing = 35;
-    let revolutionRadius = diam + (i + 1) * orbitalSpacing;
+        // 3. Unique Starting Phase
+        let startPhase = random(TWO_PI);
 
-    // Unique Starting Phase
-    let startPhase = random(TWO_PI);
-
-    planets.push({
-      size: size,
-      radius: revolutionRadius,
-      phase: startPhase,
-      color: i * (TWO_PI / numArcs), 
-      imageIndex: i % planetImages.length, 
-    });
-  }
+        planets.push({
+            size: size,
+            radius: revolutionRadius,
+            phase: startPhase,
+            emoji: planetEmojis[i % planetEmojis.length],
+            color: i * (TWO_PI / numArcs) // Store HSB hue for color
+        });
+    }
 }
 
 function draw() {
   background(bckClr);
-
+  
   let centerX = width * 0.5;
   let centerY = height * 0.5;
-
-  const baseSpeed = 0.001;
+  
+  // Base speed multiplier
+  const baseSpeed = 0.001; 
+  // Noise influence factors
   const noiseSpeed = 0.0001;
   const noiseMagnitude = PI * 0.1;
 
@@ -87,62 +70,67 @@ function draw() {
   // 1. Interval-based Motion: Change the Sun's Appearance
   // ---------------------------------------------------
   let currentTime = millis();
-
+  
   if (currentTime - previousTime > sunInterval) {
-    currentSunStateIndex = (currentSunStateIndex + 1) % sunImages.length;
-    sunInterval = random(2500, 4500);
+    currentSunStateIndex = (currentSunStateIndex + 1) % sunStates.length;
+    sunInterval = random(2500, 4500); 
     previousTime = currentTime;
   }
 
-  // Draw the current Sun image
-  let currentSunImage = sunImages[currentSunStateIndex];
-  noTint();
-  image(
-    currentSunImage,
-    centerX,
-    centerY,
-    200,
-    200
-  );
+  // Draw the current Sun icon
+  let currentSun = sunStates[currentSunStateIndex];
+  textSize(currentSun.size);
+  fill(currentSun.color); 
+  noStroke();
+  text(currentSun.text, centerX, centerY); 
 
   // ---------------------------------------------------
   // 2. Continuous Motion: Draw the Planets in Orbit
   // ---------------------------------------------------
   for (let i = 0; i < planets.length; i++) {
     let planet = planets[i];
-
-    // Calculate Mass-Dependent Orbital Speed
-    let massFactor = map(planet.size, strW * 1.5, strW * 4, 1.5, 0.5);
+    
+    // ⭐️ Key Change 1: Calculate Mass-Dependent Orbital Speed
+    // Speed is inversely related to the planet's mass (represented by size)
+    // and its distance from the sun. Smaller/closer planets move faster.
+    // We use the reciprocal of size to make it mass-dependent.
+    // The divisor 100 is for scaling the visual effect.
+    let massFactor = map(planet.size, strW * 0.8, strW * 3, 1.5, 0.5); // Smaller size = higher factor
     let orbitalSpeed = (baseSpeed * massFactor) / (i + 1);
 
     // Styling for the Orbit Line
     noFill();
     strokeWeight(1);
-    stroke(planet.color, 0.2, 0.5);
-
+    stroke(planet.color, 0.2, 0.5); 
+    
     // Draw the Orbit Line
     circle(centerX, centerY, planet.radius * 2);
 
-    // Calculate the continuous base angle for the orbit
-    let baseAngle = millis() * orbitalSpeed + planet.phase;
-
-    // Perlin Noise perturbation
+    // 3. Calculate the continuous base angle for the orbit
+    let baseAngle = (millis() * orbitalSpeed) + planet.phase; // Use stored phase
+    
+    // 4. Introduce Perlin Noise perturbation
     let noiseVal = noise(millis() * noiseSpeed, i * 10);
     let randomOffset = map(noiseVal, 0, 1, -noiseMagnitude, noiseMagnitude);
     let angle = baseAngle + randomOffset;
-    //Calculate the (x, y) position of the planet
+        
+    // 5. Calculate the (x, y) position of the planet
     let x = centerX + cos(angle) * planet.radius;
     let y = centerY + sin(angle) * planet.radius;
 
-    // Draw the Unique Planet Image
-
-    let currentPlanetImage = planetImages[planet.imageIndex];
-
-    noTint();
-
-    // Draw the planet image using its stored random size
-    image(currentPlanetImage, x, y, planet.size, planet.size);
+    // 6. Draw the Planet Image (Emoji)
+    
+    // ⭐️ Key Change 2: Use the stored, random size for the text icon
+    textSize(planet.size);
+    noStroke();
+    
+    // Draw the colored circle background behind the emoji (optional, for better visibility)
+    fill(planet.color, 0.8, 0.8);
+    circle(x, y, planet.size * 0.9);
+    
+    // Draw the emoji icon on top
+    fill(0); // Black text for contrast
+    text(planet.emoji, x, y);
+    
   } //end of for loop
-
-  noTint();
 }
