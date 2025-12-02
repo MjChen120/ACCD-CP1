@@ -18,24 +18,58 @@
     <h3>A documentation of working with P5js.</h3>
 
     <h2>Intent and Process</h2>
-    <p>For this project, I would like to further develop my solar system to make it object-oriented 
-      so the planets can interact with each other and modified by a user. </p>
-    <p>I first want the planets to be made based on whether a mouse is pressed by a user: a planet 
-      will be made by each click.</p>
-    <p>I then want user to be able to use the slide to modify the gravity (pulling force) of the sun
-      so that the orbiting speed will slow down as the gravity increases accordingly.
+    <p>
+      For this project, I would like to <b>further develop my solar system </b>to make it <b>object-oriented</b> 
+      so the planets can interact with each other and modified by a user. I do not want potential bugs,
+    so this time, I am stick to the emojis to represent the planets and suns.
+  </p>
+    <p>
+      I first want the planets to be made based on whether a mouse is pressed by a user: <b>a planet 
+      will be made by each click.</b> The orbiting speed of the planet is still correlated to the size of it, 
+      as bigger planets are pulled by the sun with a stronger force. 
     </p>
-    
-    <h2>UML Diagram and Flow Chart</h2>
-  
-    <div class="diagrams">
-        <div class ="column">
-          <img src="images/iteration1.PNG" alt="Iteration Sketch1" class="diagram">
-          <img src="images/iteration1.5.PNG" alt="Iteration Sketch1.5" class="diagram">
-        </div>
+    <p>
+      I then want user to be able to <b>use the slider to modify the gravity (pulling force) of the sun
+      so that the orbiting speed will slow down as the gravity increases accordingly</b>. This allows a <b>direct
+      user input</b>, where the gravity force of the sun can be modified, while <b>indirectly modifying</b> the orbiting 
+      speed of the planets. As a result, I implemented a slider at the bottom, with a text under the sun to
+      showcase the current gravity so that users can modify it.
+    </p>
+    <p>
+      On top of that, I would like to add more dynamic to this sketch, with a potential way of embeding emgering
+      properties in the system. My sketch calculates the distance between planets and lets users know whether if they
+      are close to each other by drawing a line between them.
+    </p>
+    <p>
+       I also add another class object: dust. Dust is a celestial object that orbits around a certain planet. Due to the
+       fact that they are relatively small objects and moves around the planets with a faster speed, they are more likely
+       to crush into each other. <b>I therefore implemented the dust object, where users can choose to add them onto the planets
+       (direct) and watch them crush with other dusts (indirect). I believe this class demonstrate emerging properties in the system
+      as well. </b>
+    </p>
+    <p>
+      Rest of my approaches were to make sure that the skecth looks <b>asthetically good and easy for users to understand so that 
+      they can interact with it hassle-free</b>. The sketch will be presented below.
+    </p>
+
+
+    <h2>UML Diagram</h2>
+    <div class = "diagrams">
+      <img src="images/UML.jpg" alt="UML diagram" class="diagram">
+    </div>
+  <h2>Flow Chart</h2>
+  <div class="diagrams"> <img src="images/FlowChart.jpg" alt="FlowChart" class="diagram">
+  </div> 
+
+
+    <h2>Sketch Shocase</h2>
+    <!-- ALL SCRIPTS GO HERE -->
+    <!-- P5js scripts -->
+        
+    <div class="sketch-container">
+        <!-- Your specific p5.js embed code goes here -->
+        <iframe src="https://editor.p5js.org/mchen120/full/70uvuTAhe"></iframe>
     </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/p5@latest/lib/p5.js"></script>
-  <script src="scripts/sketch.js"></script>
 </body>
 </html>

@@ -55,14 +55,12 @@ img {
 
 .sketches {
     justify-content: center;
-    /* Centers horizontally */
     align-items: center;
-    /* Centers vertically */
     display: flex;
     flex-wrap: wrap;
     padding: 0 4px;
     gap: 8px;
-    /* Adjust this value to control spacing */
+ 
 }
 
 .sketch {
