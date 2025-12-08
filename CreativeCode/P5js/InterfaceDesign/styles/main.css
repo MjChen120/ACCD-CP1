@@ -1,0 +1,82 @@
+body,
+main {
+    background-color: #f4f4f4;
+    margin: 0px;
+    font-family: Arial, sans-serif;
+}
+
+h1,
+h3 {
+    color: rgba(5, 87, 77, 0.594);
+    text-align: center;
+    margin-bottom: auto;
+}
+
+h2 {
+    color: rgba(5, 57, 113, 0.594);
+    text-align: center;
+    margin-top: 40px;
+}
+
+p {
+    color: rgba(5, 57, 113, 0.594);
+    line-height: 1.6;
+    padding: 10px 10px;
+    max-width: 750px;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #81d1ff;
+    padding: 1rem 2rem;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+.diagrams {
+    text-align: center;
+}
+
+.diagram {
+    width: 60%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.sketch-container {
+    width: 820px;
+    height: 820px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.sketch-container {
+    width: 820px;
+    height: 820px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.sketch-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
