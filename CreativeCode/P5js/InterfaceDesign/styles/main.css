@@ -46,15 +46,24 @@ p {
     color: white;
     text-decoration: none;
 }
+
 .diagrams {
     text-align: center;
+    justify-content: center;
+    /* Centers horizontally */
+    align-items: center;
+    /* Centers vertically */
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    /* Adjust this value to control spacing */
 }
 
 .diagram {
-    width: 60%;
+    width: 40%;
     object-fit: cover;
     display: block;
-    margin: 0 auto;
+    margin: 0 0;
 }
 
 .sketch-container {
