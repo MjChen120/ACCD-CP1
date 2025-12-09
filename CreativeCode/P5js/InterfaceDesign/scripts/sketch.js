@@ -16,8 +16,8 @@ let dynamic = false;
 // Load the model and media first
 function preload() {
   classifier = ml5.imageClassifier(imageModelURL + "model.json");
-  
-  musicVideo = createVideo(['Nina+Momoka.mp4']); 
+
+  musicVideo = createVideo(['Nina+Momoka.mp4']);
   musicVideo.hide(); // Hide the default HTML DOM element so we can draw it on canvas
 }
 
@@ -52,27 +52,25 @@ function draw() {
 }
 
 // When we get a result
-function gotResult(results) {
-  // Check if results exist and are not empty
-  if (results && results.length > 0) {
-    
-    // 1. Get the label of the most confident result
-    label = results,[object Object],label;
-    
-    // 2. Debugging: Print the actual label to the console to verify it works
-    // console.log("Detected:", label);
+function gotResult(results, error) {
+  // If there is an error
+  if (error) {
+    console.error(error);
+    return;
+  }
+  // The results are in an array ordered by confidence.
+  //console.log(results);
+  label = results[0].label;
 
-    // 3. Your Logic
-    if (label === "YOUR_PLUSHIE_LABEL") { 
-      if (!dynamic) {
-        dynamic = true;
-        musicVideo.loop();
-      }
-    } else {
-      if (dynamic) {
-        dynamic = false;
-        musicVideo.pause();
-      }
+  if (label === "Nina+Momoka") {
+    if (!dynamic) {
+      dynamic = true;
+      musicVideo.loop();
+    }
+  } else {
+    if (dynamic) {
+      dynamic = false;
+      musicVideo.pause();
     }
   }
 }
