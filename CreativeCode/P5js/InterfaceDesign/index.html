@@ -50,8 +50,8 @@
   <h2>Why Do I think It is A Good Idea?</h2>
   <p>Nowadays, it is very essential for a product to stand out, espacially for Anime merchs, which has become extremly
     competitive
-    in the market. As an artist / art product designer who owns <a
-      href="https://www.etsy.com/ca/shop/BulasOdenShop">a small buisness</a>
+    in the market. As an artist / art product designer who owns <a href="https://www.etsy.com/ca/shop/BulasOdenShop">a
+      small buisness</a>
     besides school, I would like to use this project as my starting point to explore possible ways
     to enhance the interactive experiences of my products. "Girls Band Cry" is an very good example because it is famous
     in terms of the unique
@@ -99,7 +99,8 @@
   <p>However, I encountered many issues: 1) p5js cannot directly play videos from a link, espacially
     Youtube, as it has complicated protections, 2) The video downloaded from YouTube is too large in size to be uploaded
     to p5js,
-    making it impossible to test on p5js editor, and lastely 3) Simply have the sketch and files locally does not solve
+    making it impossible to test on p5js editor, and lastly 3) Simply have the javascript sketch and files locally does
+    not solve
     the problem.
   </p>
 
@@ -161,8 +162,11 @@
     further develop an aesthetic flavour.
   </p>
 
+  <h4>Interface Before VS After</h4>
+
   <div class="diagrams">
     <img src="images/interfaceBefore.PNG" alt="ideation" class="diagram">
+    <img src="images/interfaceAfter.PNG" alt="ideation" class="diagram">
   </div>
 
 
@@ -171,23 +175,22 @@
   <!-- P5js scripts -->
 
   <p>Due to security limitations, the sketch will not function from this page.
-    Please click on this <a href="https://editor.p5js.org/mchen120/full/2iIAt5XX3">link</a> for access.</p>
+    Please click on this <a href="https://editor.p5js.org/mchen120/full/2iIAt5XX3">link</a> or the button for access.</p>
 
-  <div class="sketch-container">
-    <!-- Your specific p5.js embed code goes here -->
-    <iframe src="https://editor.p5js.org/mchen120/full/2iIAt5XX3"></iframe>
+  <div id="button-holder">
+    <button class="nav-button" onclick="navigateToWebsite()">
+      Visit Sketch
+    </button>
   </div>
 
-  <!-- P5js scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/p5@latest/lib/p5.js"></script>
 
-  <script src="scripts/sketch.js"></script>
-
-  <div id="sketch-holder">
-
-    <!-- Our sketch will go here! -->
-  </div>
-
+  <script>
+    function navigateToWebsite() {
+      // Use window.location.href to change the current page
+      // Use window.open() to open the page in a new tab (recommended for links)
+      window.open('https://editor.p5js.org/mchen120/full/2iIAt5XX3', '_blank');
+    }
+  </script>
 </body>
 
 </html>

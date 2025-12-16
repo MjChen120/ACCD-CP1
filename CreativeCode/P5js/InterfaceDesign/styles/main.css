@@ -12,7 +12,8 @@ h3 {
     margin-bottom: auto;
 }
 
-h2 {
+h2,
+h4 {
     color: rgba(5, 57, 113, 0.594);
     text-align: center;
     margin-top: 40px;
@@ -83,8 +84,8 @@ p {
 }
 
 .video-container {
-    width: 600px;
-    height: 600px;
+    width: 560px;
+    height: 315px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     overflow: hidden;
@@ -92,14 +93,43 @@ p {
 }
 
 .video-container iframe {
+    width: 560px;
+    height: 315px;
     border: none;
     display: block;
 }
 
-ul{
-    color:rgba(5, 87, 77, 0.594);
+ul {
+    color: rgba(5, 87, 77, 0.594);
     text-align: center;
     justify-content: center;
     /* Centers horizontally */
     align-items: center;
+}
+
+.button-container {
+    height: 100%;
+    /* Make the wrapper take full height of main */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+}
+
+.nav-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #E80543;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #740a26;
 }
