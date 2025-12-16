@@ -92,8 +92,6 @@ p {
 }
 
 .video-container iframe {
-    width: 50%;
-    height: 50%;
     border: none;
     display: block;
 }
