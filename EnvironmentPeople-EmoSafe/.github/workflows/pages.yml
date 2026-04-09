@@ -1,4 +1,4 @@
-name: Deploy EnvironmentPeople-EmoSafe to GitHub Pages
+name: Deploy ACCD-CP1 Pages
 
 on:
   push:
@@ -17,9 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: EnvironmentPeople-EmoSafe
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,17 +29,25 @@ jobs:
           cache-dependency-path: EnvironmentPeople-EmoSafe/package-lock.json
 
       - name: Install dependencies
+        working-directory: EnvironmentPeople-EmoSafe
         run: npm ci
 
       - name: Build static export
+        working-directory: EnvironmentPeople-EmoSafe
         env:
           NEXT_PUBLIC_BASE_PATH: "/ACCD-CP1/EnvironmentPeople-EmoSafe"
         run: npm run export
 
+      - name: Assemble Pages site
+        run: |
+          mkdir -p site/EnvironmentPeople-EmoSafe
+          cp -R EnvironmentPeople-EmoSafe/out/* site/EnvironmentPeople-EmoSafe/
+          touch site/.nojekyll
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: EnvironmentPeople-EmoSafe/out
+          path: ./site
 
   deploy:
     environment:
