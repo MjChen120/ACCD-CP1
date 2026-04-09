@@ -40,8 +40,24 @@ jobs:
 
       - name: Assemble Pages site
         run: |
+          mkdir -p site
+
+          # Copy everything in the repo into the published site,
+          # but exclude the Next project sources and GitHub metadata.
+          rsync -av \
+            --exclude ".git" \
+            --exclude ".github" \
+            --exclude "EnvironmentPeople-EmoSafe" \
+            --exclude "**/node_modules" \
+            --exclude "**/.next" \
+            --exclude "**/out" \
+            ./ site/
+
+          # Add the exported prototype under /EnvironmentPeople-EmoSafe/
           mkdir -p site/EnvironmentPeople-EmoSafe
           cp -R EnvironmentPeople-EmoSafe/out/* site/EnvironmentPeople-EmoSafe/
+
+          # Important for Next static assets on Pages
           touch site/.nojekyll
 
       - name: Upload artifact
