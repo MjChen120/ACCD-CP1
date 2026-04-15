@@ -26,7 +26,9 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
-          cache-dependency-path: EnvironmentPeople-EmoSafe/package-lock.json
+          cache-dependency-path: |
+            EnvironmentPeople-EmoSafe/package-lock.json
+            Co-labs/package-lock.json
 
       - name: Install dependencies
         working-directory: EnvironmentPeople-EmoSafe
@@ -36,6 +38,16 @@ jobs:
         working-directory: EnvironmentPeople-EmoSafe
         env:
           NEXT_PUBLIC_BASE_PATH: "/ACCD-CP1/EnvironmentPeople-EmoSafe"
+        run: npm run export
+
+      - name: Install dependencies (Co-labs)
+        working-directory: Co-labs
+        run: npm ci
+
+      - name: Build static export (Co-labs)
+        working-directory: Co-labs
+        env:
+          NEXT_PUBLIC_BASE_PATH: "/ACCD-CP1/Co-labs"
         run: npm run export
 
       - name: Assemble Pages site
@@ -48,6 +60,7 @@ jobs:
             --exclude ".git" \
             --exclude ".github" \
             --exclude "EnvironmentPeople-EmoSafe" \
+            --exclude "Co-labs" \
             --exclude "**/node_modules" \
             --exclude "**/.next" \
             --exclude "**/out" \
@@ -56,6 +69,10 @@ jobs:
           # Add the exported prototype under /EnvironmentPeople-EmoSafe/
           mkdir -p site/EnvironmentPeople-EmoSafe
           cp -R EnvironmentPeople-EmoSafe/out/* site/EnvironmentPeople-EmoSafe/
+
+          # Add the exported prototype under /Co-labs/
+          mkdir -p site/Co-labs
+          cp -R Co-labs/out/* site/Co-labs/
 
           # Important for Next static assets on Pages
           touch site/.nojekyll
